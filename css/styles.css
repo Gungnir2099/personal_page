@@ -338,14 +338,75 @@ button { font: inherit; }
 .photo-grid .photo-8,
 .photo-grid .photo-9 { grid-column: auto; aspect-ratio: auto; }
 
+/* Compact visitors + contact row */
+.closing-section { padding: 90px 0; background: var(--white); border-top: 1px solid var(--line); }
+.closing-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
+.closing-panel { display: flex; flex-direction: column; min-width: 0; }
+.closing-panel + .closing-panel { margin-left: 60px; padding-left: 60px; border-left: 1px solid var(--line); }
+.compact-section-heading { display: flex; align-items: baseline; gap: 16px; margin-bottom: 22px; }
+.compact-section-heading .section-number { margin: 0; font-size: .82rem; }
+.compact-section-heading h2 {
+    margin: 0;
+    font-family: var(--serif);
+    font-size: 2.25rem;
+    font-weight: 400;
+    line-height: 1.12;
+    letter-spacing: -.025em;
+}
+.closing-panel-intro { height: 72px; margin: 0 0 20px; color: var(--muted); font-size: .96rem; line-height: 1.62; }
+.visitor-counter-card {
+    flex: 1;
+    min-width: 0;
+    padding: 14px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+}
+.visitor-counter-heading,
+.contact-card-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 0 2px 10px;
+    border-bottom: 1px solid var(--line);
+    color: var(--light-muted);
+    font-size: .72rem;
+    font-weight: 650;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+}
+.visitor-counter-heading > div,
+.contact-card-heading > div { display: flex; align-items: center; gap: 8px; color: var(--blue); }
+.visitor-live-dot,
+.contact-live-dot { width: 7px; height: 7px; background: #4d8968; border-radius: 50%; box-shadow: 0 0 0 4px rgba(77, 137, 104, .12); }
+.visitor-counter-link {
+    display: block;
+    margin: 13px 0 11px;
+    overflow: hidden;
+    background: #071642;
+    border: 1px solid var(--line);
+    text-decoration: none;
+}
+.visitor-counter-link img { display: block; width: 100%; height: auto; filter: saturate(.82) contrast(.96); transition: filter .2s ease, transform .3s ease; }
+.visitor-counter-link:hover img { filter: saturate(1) contrast(1); transform: scale(1.003); }
+.visitor-counter-footer {
+    padding: 10px 2px 0;
+    border-top: 1px solid var(--line);
+    font-size: .76rem;
+    line-height: 1.6;
+}
+.visitor-counter-footer span { color: var(--blue); }
+
 /* Contact */
-.contact-section { padding: 105px 0; background: var(--white); border-top: 1px solid var(--line); }
-.contact-layout { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 65px; align-items: start; }
-.contact-copy { min-width: 0; }
-.contact-copy > p { max-width: 590px; margin: 0 0 34px; color: #59656c; font-family: var(--serif); font-size: 1.08rem; line-height: 1.72; }
-.email-address { display: block; padding: 14px 0; color: var(--blue); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-family: var(--serif); font-size: 1.22rem; text-decoration: none; overflow-wrap: anywhere; }
-.email-address span { color: var(--light-muted); }
-.contact-meta { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 20px; color: #626c73; font-size: .79rem; }
+.contact-details-card { flex: 1; display: flex; flex-direction: column; min-width: 0; padding: 14px; background: var(--paper); border: 1px solid var(--line); }
+.contact-card-body { flex: 1; display: flex; flex-direction: column; min-width: 0; padding: 13px 2px 0; }
+.contact-details-list { margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.contact-details-list > div { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 18px; align-items: center; min-height: 48px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+.contact-details-list dt { color: var(--light-muted); font-size: .73rem; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; }
+.contact-details-list dd { margin: 0; color: #59656c; font-family: var(--serif); font-size: 1rem; overflow-wrap: anywhere; }
+.contact-details-list a { color: var(--blue); text-decoration: none; }
+.contact-details-list a span { color: var(--light-muted); }
+.contact-meta { display: flex; flex-wrap: wrap; gap: 18px; margin-top: auto; padding-top: 16px; color: #626c73; font-size: .87rem; }
 .contact-meta a { color: var(--blue); text-decoration: none; }
 
 .site-footer { padding: 24px 0; color: #9aa3a8; background: #1d262c; }
@@ -393,6 +454,7 @@ button { font: inherit; }
     .paper { grid-template-columns: 55px 135px minmax(0, 1fr); gap: 16px; }
     .paper-figure { width: 135px; height: 94px; }
     .gallery-heading { grid-template-columns: 1fr 330px; }
+    .closing-panel + .closing-panel { margin-left: 38px; padding-left: 38px; }
 }
 
 @media (max-width: 760px) {
@@ -444,7 +506,7 @@ button { font: inherit; }
     .recent-line { grid-template-columns: 55px minmax(0, 1fr); margin-top: 50px; }
     .recent-line a { grid-column: 2; }
     .section,
-    .contact-section { padding: 80px 0; }
+    .closing-section { padding: 80px 0; }
     .section-grid { grid-template-columns: 1fr; gap: 40px; }
     .section-side h2 br { display: none; }
     .side-link { margin-top: 14px; }
@@ -454,7 +516,9 @@ button { font: inherit; }
     .paper-text { grid-column: 2; }
     .gallery-heading { grid-template-columns: 1fr; gap: 18px; }
     .photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .contact-layout { grid-template-columns: 1fr; gap: 35px; }
+    .closing-grid { grid-template-columns: 1fr; gap: 48px; }
+    .closing-panel + .closing-panel { margin-left: 0; padding: 48px 0 0; border-top: 1px solid var(--line); border-left: 0; }
+    .closing-panel-intro { height: auto; min-height: 0; }
 }
 
 @media (max-width: 500px) {
@@ -476,8 +540,11 @@ button { font: inherit; }
     .award-copy .award-logo-seal { width: 34px; height: 34px; }
     .award-row h3 { font-size: .9rem; }
     .photo-grid { grid-template-columns: 1fr; gap: 8px; }
-    .contact-copy > p { font-size: 1rem; }
-    .email-address { font-size: 1rem; }
+    .visitor-counter-card { padding: 12px; }
+    .visitor-counter-heading,
+    .contact-card-heading { align-items: flex-start; flex-direction: column; gap: 5px; }
+    .visitor-counter-link { margin-block: 12px 10px; }
+    .contact-details-list > div { grid-template-columns: 80px minmax(0, 1fr); gap: 12px; }
     .footer-inner { align-items: flex-start; flex-direction: column; gap: 7px; }
     .footer-inner a { align-self: flex-end; }
     .music-label { display: none; }
